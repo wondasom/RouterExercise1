@@ -9,11 +9,15 @@ const Button = styled.button`
   margin: 20px auto;
   padding: 10px 20px;
   font-size: 20px;
-
+  outline: none;
 `;
 
 
 function Cat() {
+
+  const refreshPage = () => {
+    window.location.reload(false);
+  }
 
   useEffect(()=> {
     fetchItems();
@@ -32,7 +36,7 @@ function Cat() {
   return (
     <div>
       <h1>Cat Page</h1>
-      <Button>Refresh the page!</Button>
+      <Button onClick={refreshPage}>Refresh the page!</Button>
       {items.map(item=>
         <img key={item.id} src={item.url}/>
         )}
